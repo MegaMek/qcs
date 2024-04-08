@@ -1,0 +1,14 @@
+require:
+  - rubocop-capybara
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-thread_safety
+
+AllCops:
+  ActiveSupportExtensionsEnabled: true
+  ExtraDetails: true
+  NewCops: enable
+  TargetRubyVersion: 3.3
+  Exclude:
+    - "db/schema.rb"
+    - "db/seeds.rb"
