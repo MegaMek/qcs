@@ -1,0 +1,18 @@
+<% title(@era['name']) %>
+
+<div class='row'>
+  <div class='col'>
+    <%= @era['startYear'] %> - <%= @era['endYear'] %>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col'>
+    <% if @era['mulId'].present? %>
+      <%= link_to('MUL', "http://masterunitlist.info/Era/Details/#{@era['mulId']}") %>
+    <% end %>
+    <% if @era['icon'].present? %>
+      <%= image_tag "eras/#{@era['icon']}", class: 'img-fluid float-end ' %>
+    <% end %>
+  </div>
+</div>

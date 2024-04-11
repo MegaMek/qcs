@@ -1,0 +1,25 @@
+<% title('Eras') %>
+
+<div class='row row-cols-3'>
+  <% @eras.each do |era| %>
+    <div class='col mb-2'>
+      <div class='card'>
+        <div class='card-header'>
+          <%= link_to(era['name'], era_path(era['id'])) %>
+          -
+          <%= era['startYear'] %>
+          -
+          <%= era['endYear'] %>
+        </div>
+        <div class='card-body'>
+          <% if era['mulId'].present? %>
+            <%= link_to('MUL', "http://masterunitlist.info/Era/Details/#{era['mulId']}") %>
+          <% end %>
+          <% if era['icon'].present? %>
+            <%= image_tag "eras/#{era['icon']}", class: 'img-fluid float-end' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

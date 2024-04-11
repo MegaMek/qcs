@@ -10,5 +10,6 @@ AllCops:
   NewCops: enable
   TargetRubyVersion: 3.3
   Exclude:
+    - "bin/*"
     - "db/schema.rb"
     - "db/seeds.rb"
