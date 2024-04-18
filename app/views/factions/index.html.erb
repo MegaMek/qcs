@@ -1,0 +1,9 @@
+<% title('Factions') %>
+
+<div class='row row-cols-3'>
+  <% @factions.each do |faction| %>
+    <div class='col mb-2'>
+        <%= render partial: 'faction', locals: { faction: faction } %>
+    </div>
+  <% end %>
+</div>

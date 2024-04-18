@@ -1,0 +1,51 @@
+<% current_name = @faction['names'].max_by { |name| name['startyear'].to_i } %>
+
+<% title current_name['name'] %>
+
+<div class='row'>
+  <div class='col'>
+    <% if @faction['minor'] %>
+      <span class="badge text-bg-secondary">Minor</span>
+    <% end %>
+
+    <% if @faction['periphery'] %>
+      <span class="badge text-bg-secondary">Periphery</span>
+    <% end %>
+
+    <% if @faction['clan'] %>
+      <span class="badge text-bg-secondary">Clan</span>
+    <% end %>
+
+    <% if @faction['ratingLevels'].present? %>
+      <p>
+        Rating Levels: <%= @faction['ratingLevels'].split(',').join(', ') %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<div class='row row-cols-3'>
+  <% @faction['names'].sort_by { |name| name['startyear'].to_i }.each do |name| %>
+    <div class='col text-center'>
+      <%= name['name'] %>
+      <br />
+      <span class="badge text-bg-secondary">
+        <%= name['startYear'] %>
+        -
+        <%= name['endYear'].presence || 'Current' %>
+      </span>
+      <br />
+
+      <% if name['image'].present? %>
+        <hr />
+        <%= image_tag "factions/#{name['image']}", class: 'img-fluid img-thumbnail p-2' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<hr />
+
+<div class='row'>
+
+</div>
