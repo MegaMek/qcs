@@ -1,0 +1,55 @@
+<% current_name = faction['names'].max_by { |name| name['startyear'].to_i } %>
+<div class='card mb-2'>
+  <% if current_name['image'].present? %>
+    <%= image_tag "factions/#{current_name['image']}", class: 'card-img-top' %>
+  <% end %>
+  <div class='card-header'>
+    <%= link_to current_name['name'], faction_url(faction['id']) %> (
+      <%= current_name['startYear'] %>
+      -
+      <%= current_name['endYear'].presence || 'Current' %>
+    )
+  </div>
+  <div class='card-body'>
+    <% if faction['minor'] %>
+      <span class="badge text-bg-secondary">Minor</span>
+    <% end %>
+
+    <% if faction['periphery'] %>
+      <span class="badge text-bg-secondary">Periphery</span>
+    <% end %>
+
+    <% if faction['clan'] %>
+      <span class="badge text-bg-secondary">Clan</span>
+    <% end %>
+
+    <% if faction['ratingLevels'].present? %>
+      <p>
+        Rating Levels: <%= faction['ratingLevels'].split(',').join(', ') %>
+      </p>
+    <% end %>
+
+    <% if faction['subfactions'].size.positive? %>
+      <p>
+        Total Subfactions: <%= faction['subfactions'].size %>
+      </p>
+    <% end %>
+
+    <% if faction['names'].size > 1 %>
+      <p>
+        Additional Names
+        <ul>
+          <% faction['names'].sort_by { |name| name['startyear'].to_i }.each do |name| %>
+            <li>
+              <%= name['name'] %> (
+                <%= name['startYear'] %>
+                -
+                <%= name['endYear'].presence || 'Current' %>
+              )
+            </li>
+          <% end %>
+        </ul>
+      </p>
+    <% end %>
+  </div>
+</div>
