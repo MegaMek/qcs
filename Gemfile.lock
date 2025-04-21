@@ -81,7 +81,7 @@ GEM
     base64 (0.2.0)
     bigdecimal (3.1.7)
     bindex (0.8.1)
-    bootsnap (1.18.3)
+    bootsnap (1.18.4)
       msgpack (~> 1.2)
     builder (3.2.4)
     capybara (3.40.0)
@@ -132,7 +132,7 @@ GEM
     memory_profiler (1.0.1)
     mini_mime (1.1.5)
     minitest (5.22.3)
-    msgpack (1.7.2)
+    msgpack (1.8.0)
     mutex_m (0.2.0)
     net-imap (0.4.10)
       date
